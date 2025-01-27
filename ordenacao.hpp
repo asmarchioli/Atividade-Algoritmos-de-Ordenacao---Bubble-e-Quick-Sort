@@ -13,27 +13,16 @@ class Ordenacao{
 
         void bubble_ordenation(vector<DishRecord>& vetor_dishes) {
             int tamanho_vetor_dishes = vetor_dishes.size();
-            bool trocado;
-            int nova_posicao;
-            int n = tamanho_vetor_dishes - 1;
-            int passo = 0;////////////////////////////////////////////////////////////////////
-
-            do {
-                trocado = false;
-                nova_posicao = 0;
-                std::cout << "Passo " << passo+1 << ": ";///////////////////////////////////
-                for (int i = 0; i < n; ++i) {
-                    if (vetor_dishes[i].priority < vetor_dishes[i + 1].priority || 
-                    (vetor_dishes[i].priority == vetor_dishes[i + 1].priority && vetor_dishes[i].time > vetor_dishes[i + 1].time)) {
-                        swap(vetor_dishes[i], vetor_dishes[i + 1]);
-                        trocado = true;
-                        nova_posicao = i;
+            for (int i = 0; i < tamanho_vetor_dishes - 1; ++i) {
+                for (int j = 0; j < tamanho_vetor_dishes - i - 1; ++j) {
+                    if (vetor_dishes[j].priority < vetor_dishes[j + 1].priority || 
+                        (vetor_dishes[j].priority == vetor_dishes[j + 1].priority && vetor_dishes[j].time > vetor_dishes[j + 1].time)) {
+                        swap(vetor_dishes[j], vetor_dishes[j + 1]);
                     }
                 }
-                n = nova_posicao;
-                passo++;////////////////////////////////////////////////////////////////////
-            } while (trocado);
+            }
         }
+    
 
         void quickSort(vector<DishRecord>& vetor_dishes, int low, int high) {
             if (low < high) {
