@@ -4,21 +4,40 @@ using namespace std;
 using namespace std::chrono;  // Para facilitar o uso das funções de tempo
 
 int main() {
-    vector<DishRecord> dataset_dishes = readCSV("dishes.csv");
-    Ordenacao* dishes = new Ordenacao(dataset_dishes);
+    vector<DishRecord> dataset_dishes_bubble = readCSV("dishes.csv");
+    vector<DishRecord> dataset_dishes_quick = readCSV("dishes.csv");
+    Ordenacao* dishes_bubble = new Ordenacao(dataset_dishes_bubble);
+    Ordenacao* dishes_quick = new Ordenacao(dataset_dishes_quick);
 
-    cout << "Iniciando a ordenacao: " << endl;
+    cout << "Iniciando a ordenacao BUBBLE: " << endl;
     auto inicio = high_resolution_clock::now();
-    dishes->bubble_ordenation(dataset_dishes);
+    dishes_bubble->bubble_ordenation(dataset_dishes_bubble);
     auto fim = high_resolution_clock::now();
     duration<double> duracao = fim - inicio;
 
     cout << "Ordenacao finalizada" << endl;
     cout << "Tempo de execucao: " << duracao.count() << " segundos" << endl;
     
-    dishes->print_dataset_50(dataset_dishes);
+    cout << "Iniciando a ordenacao QUICK: " << endl;
+    inicio = high_resolution_clock::now();
+    dishes_quick->quick_sort(dataset_dishes_quick);
+    fim = high_resolution_clock::now();
+    duracao = fim - inicio;
 
-    dataset_dishes.clear();
-    dataset_dishes.shrink_to_fit();
+    cout << "Ordenacao finalizada" << endl;
+    cout << "Tempo de execucao: " << duracao.count() << " segundos" << endl;
+
+    cout << endl;
+    dishes_quick->print_dataset_50(dataset_dishes_quick);
+    cout << endl;
+    cout << endl;
+    dishes_bubble->print_dataset_50(dataset_dishes_bubble);
+
+
+
+    dataset_dishes_bubble.clear();
+    dataset_dishes_bubble.shrink_to_fit();
+    dataset_dishes_quick.clear();
+    dataset_dishes_quick.shrink_to_fit();
     return 0;
 }

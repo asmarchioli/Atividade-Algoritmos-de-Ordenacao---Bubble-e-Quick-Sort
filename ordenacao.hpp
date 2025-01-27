@@ -11,24 +11,17 @@ class Ordenacao{
             dishes = vetor_dishes;
         };
 
-        /*void bubble_ordenation(vector<DishRecord>& vetor_dishes){
-            int tamanho_vetor_dishes = vetor_dishes.size();
-            for (int i = 0; i < tamanho_vetor_dishes; i++){
-                for (int j = i +1; j < tamanho_vetor_dishes; j++){
-                    if(vetor_dishes[i].priority > vetor_dishes[j].priority){
-                        swap(vetor_dishes[i], vetor_dishes[j]);
-                    }
-                }
-            }
-        }*/
         void bubble_ordenation(vector<DishRecord>& vetor_dishes) {
             int tamanho_vetor_dishes = vetor_dishes.size();
             bool trocado;
             int nova_posicao;
             int n = tamanho_vetor_dishes - 1;
+            int passo = 0;////////////////////////////////////////////////////////////////////
+
             do {
                 trocado = false;
                 nova_posicao = 0;
+                std::cout << "Passo " << passo+1 << ": ";///////////////////////////////////
                 for (int i = 0; i < n; ++i) {
                     if (vetor_dishes[i].priority < vetor_dishes[i + 1].priority || 
                     (vetor_dishes[i].priority == vetor_dishes[i + 1].priority && vetor_dishes[i].time > vetor_dishes[i + 1].time)) {
@@ -38,7 +31,34 @@ class Ordenacao{
                     }
                 }
                 n = nova_posicao;
+                passo++;////////////////////////////////////////////////////////////////////
             } while (trocado);
+        }
+
+        void quickSort(vector<DishRecord>& vetor_dishes, int low, int high) {
+            if (low < high) {
+                int pi = partition(vetor_dishes, low, high);
+                quickSort(vetor_dishes, low, pi - 1);
+                quickSort(vetor_dishes, pi + 1, high);
+            }
+        }
+
+        int partition(vector<DishRecord>& vetor_dishes, int low, int high) {
+            DishRecord pivot = vetor_dishes[high];
+            int i = low - 1;
+            for (int j = low; j < high; j++) {
+                if (vetor_dishes[j].priority > pivot.priority || 
+                    (vetor_dishes[j].priority == pivot.priority && vetor_dishes[j].time < pivot.time)) {
+                    i++;
+                    swap(vetor_dishes[i], vetor_dishes[j]);
+                }
+            }
+            swap(vetor_dishes[i + 1], vetor_dishes[high]);
+            return i + 1;
+        }
+
+        void quick_sort(vector<DishRecord>& vetor_dishes) {
+            quickSort(vetor_dishes, 0, vetor_dishes.size() - 1);
         }
 
 
