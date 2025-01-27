@@ -14,7 +14,6 @@ class Ordenacao{
         void bubble_ordenation(vector<DishRecord>& vetor_dishes) {
             int tamanho_vetor_dishes = vetor_dishes.size();
             for (int i = 0; i < tamanho_vetor_dishes - 1; ++i) {
-                cout << i+1 << endl;
                 for (int j = 0; j < tamanho_vetor_dishes - i - 1; ++j) {
                     if (vetor_dishes[j].priority < vetor_dishes[j + 1].priority || 
                         (vetor_dishes[j].priority == vetor_dishes[j + 1].priority && vetor_dishes[j].time > vetor_dishes[j + 1].time)) {
@@ -52,9 +51,8 @@ class Ordenacao{
         }
 
 
-        void print_dataset_50(const std::vector<DishRecord>& dishes) {
-            //int tamanho_vetor_dishes = dishes.size();
-            for (int i = 0; i < 50; ++i) {
+        void print_dataset_100(const std::vector<DishRecord>& dishes) {
+            for (int i = 0; i < 100; ++i) {
                 const DishRecord& dish = dishes[i];
                 std::cout << dish.priority << std::setw(10) << dish.time << std::setw(22) << dish.name << std::endl;
             }

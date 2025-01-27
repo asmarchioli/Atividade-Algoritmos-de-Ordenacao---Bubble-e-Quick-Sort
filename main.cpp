@@ -28,12 +28,7 @@ int main() {
     cout << "Tempo de execucao: " << duracao.count() << " segundos" << endl;
 
     cout << endl;
-    dishes_quick->print_dataset_50(dataset_dishes_quick);
-    cout << endl;
-    cout << endl;
-    dishes_bubble->print_dataset_50(dataset_dishes_bubble);
-
-
+    dishes_quick->print_dataset_100(dataset_dishes_quick);
 
     dataset_dishes_bubble.clear();
     dataset_dishes_bubble.shrink_to_fit();
