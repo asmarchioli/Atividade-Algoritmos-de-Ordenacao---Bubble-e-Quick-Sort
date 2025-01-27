@@ -1,4 +1,5 @@
 # Atividade Algoritmos de Ordenação - Bubble e Quick
+## Alexandre da Silva Marchioli - Turma 1000 - UEL, 2025
 
 Este projeto contém implementações dos algoritmos de ordenação Bubble Sort e Quick Sort. A seguir, apresentamos uma comparação entre esses métodos, uma breve explicação sobre a escolha de pivôs na função do Quick Sort e detalhes sobre o tempo de execução de cada algoritmo.
 
@@ -27,16 +28,20 @@ Esses resultados demonstram a superioridade do Quick Sort em termos de eficiênc
 A função `print_dataset_100` é utilizada para imprimir apenas os 100 primeiros elementos ordenados do conjunto de dados. Isso facilita a visualização e verificação dos resultados sem a necessidade de exibir todo o conjunto de dados.
 
 ```cpp
-        void print_dataset_100(const std::vector<DishRecord>& dishes) {
-            for (int i = 0; i < 100; ++i) {
-                const DishRecord& dish = dishes[i];
-                std::cout << dish.priority << std::setw(10) << dish.time << std::setw(22) << dish.name << std::endl;
-            }
-        }
+void print_dataset_100(const std::vector<DishRecord>& dishes) {
+     for (int i = 0; i < 100; ++i) {
+        const DishRecord& dish = dishes[i];
+        std::cout << dish.priority << std::setw(10) << dish.time << std::setw(22) << dish.name << std::endl;
+    }
+}
 ```
 
 ## Considerações finais
 
-Neste trabalho, gostaria de informar que os commits no repositório do GitHub estão no nome do meu irmão, Guilherme Marchioli. Isso ocorreu porque ambos utilizamos o VSCode, e houve um conflito entre contas do programa durante a execução da atividade.
+Neste trabalho, gostaria de informar que os commits no repositório do GitHub estão no nome do meu irmão, Guilherme Marchioli. Isso ocorreu porque ambos utilizamos o VSCode, e houve um conflito entre as duas contas no programa durante a execução da atividade. 
+
+Segue gráfico de controle do código-fonte:
+
+![Imagem dos Commits pelo VSCode](commits-vscode.PNG)
 
 Também ressalto que o Bubble Sort teve uma péssima performance no meu computador, devido à inferioridade do hardware. Meu laptop, que já tem alguns anos de uso, não é adequado para executar algoritmos que demandam alto desempenho. Portanto, os resultados obtidos podem não refletir a eficiência real do Bubble Sort em máquinas mais modernas e potentes.
