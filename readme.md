@@ -40,7 +40,7 @@ void print_dataset_100(const std::vector<DishRecord>& dishes) {
 
 Neste trabalho, gostaria de informar que os commits no repositório do GitHub estão no nome do meu irmão, Guilherme Marchioli. Isso ocorreu porque ambos utilizamos o VSCode, e houve um conflito entre as duas contas no programa durante a execução da atividade. 
 
-Segue gráfico de controle do código-fonte:
+Segue o gráfico de controle do código-fonte:
 
 ![Imagem dos Commits pelo VSCode](commits-vscode.PNG)
 
